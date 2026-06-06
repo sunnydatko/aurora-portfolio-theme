@@ -6,7 +6,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
-import nodeBg from "../images/nodes-bg.png";
+import heroBg from "../images/hero-bg.png";
 
 const fadeUp = keyframes`
   from { opacity: 0; transform: translateY(32px); filter: blur(6px); }
@@ -72,7 +72,7 @@ export default function Hero() {
         sx={{
           position: "absolute",
           inset: 0,
-          backgroundImage: `url(${nodeBg.src})`,
+          backgroundImage: `url(${heroBg.src})`,
           backgroundSize: "cover",
           backgroundPosition: { xs: "center", md: "center" },
           willChange: "transform, opacity",
