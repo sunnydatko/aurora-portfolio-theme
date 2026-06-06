@@ -1,6 +1,7 @@
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import XIcon from "@mui/icons-material/X";
@@ -20,7 +21,7 @@ const Footer = () => (
   >
     <Box sx={{ padding: "16px 0" }}>
       <Container>
-        <Box sx={{ display: "flex", justifyContent: "center", gap: 1 }}>
+        <Box sx={{ display: "flex", justifyContent: "center", gap: 1, mb: 1 }}>
           {social.map(({ label, href }) => (
             <IconButton
               key={label}
@@ -38,6 +39,17 @@ const Footer = () => (
             </IconButton>
           ))}
         </Box>
+        <Typography
+          sx={{
+            textAlign: "center",
+            color: "grey.600",
+            fontFamily: "var(--font-inter), sans-serif",
+            fontSize: 12,
+            letterSpacing: "0.04em",
+          }}
+        >
+          &copy; {new Date().getFullYear()} Alex Parker. All rights reserved.
+        </Typography>
       </Container>
     </Box>
   </Box>

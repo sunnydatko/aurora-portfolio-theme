@@ -30,7 +30,7 @@ body {
   position: absolute;
   border-radius: 50%;
   filter: blur(90px);
-  opacity: 0.5;
+  opacity: 0.65;
   will-change: transform;
 }
 
@@ -41,8 +41,8 @@ body {
   left: -8vw;
   background: radial-gradient(
     circle at center,
-    rgba(59, 130, 246, 0.28),
-    rgba(59, 130, 246, 0) 70%
+    rgba(236, 72, 153, 0.38),
+    rgba(236, 72, 153, 0) 70%
   );
   animation: auraDriftA 26s ease-in-out infinite alternate;
 }
@@ -54,8 +54,8 @@ body {
   right: -6vw;
   background: radial-gradient(
     circle at center,
-    rgba(125, 211, 252, 0.18),
-    rgba(125, 211, 252, 0) 70%
+    rgba(167, 139, 250, 0.30),
+    rgba(167, 139, 250, 0) 70%
   );
   animation: auraDriftB 32s ease-in-out infinite alternate;
 }
@@ -67,8 +67,8 @@ body {
   left: 55%;
   background: radial-gradient(
     circle at center,
-    rgba(30, 58, 138, 0.38),
-    rgba(30, 58, 138, 0) 70%
+    rgba(109, 40, 217, 0.45),
+    rgba(109, 40, 217, 0) 70%
   );
   animation: auraDriftC 38s ease-in-out infinite alternate;
 }
@@ -95,8 +95,8 @@ body {
   border-radius: 50%;
   background: radial-gradient(
     circle at center,
-    rgba(59, 130, 246, 0.14),
-    rgba(59, 130, 246, 0) 65%
+    rgba(236, 72, 153, 0.14),
+    rgba(236, 72, 153, 0) 65%
   );
   mix-blend-mode: screen;
   will-change: transform;
@@ -120,13 +120,13 @@ body {
 
 /* frosted glass surface — used for cards */
 .glass {
-  background: rgba(245, 241, 236, 0.035);
-  border: 1px solid rgba(245, 241, 236, 0.08);
+  background: rgba(245, 241, 236, 0.065);
+  border: 1px solid rgba(245, 241, 236, 0.13);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-radius: 18px;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45),
-    inset 0 1px 0 rgba(245, 241, 236, 0.05);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(245, 241, 236, 0.08);
 }
 
 /* reveal-on-scroll */

@@ -13,7 +13,7 @@ export default function Experience() {
       id="experience"
       sx={{
         py: { xs: 10, md: 14 },
-        borderTop: "1px solid rgba(255,255,255,0.06)",
+        borderTop: "1px solid rgba(255,255,255,0.09)",
         position: "relative",
         zIndex: 1,
       }}
@@ -51,7 +51,7 @@ export default function Experience() {
               py: 1,
               mb: 5,
               borderLeft: "2px solid",
-              borderColor: "rgba(59,130,246,0.30)",
+              borderColor: "rgba(236,72,153,0.35)",
             }}
           >
             <Typography
@@ -97,7 +97,7 @@ sx={{ color: "common.white" }}
 
             <Typography
               sx={{
-                color: "grey.500",
+                color: "grey.400",
                 fontFamily: "var(--font-inter), sans-serif",
                 fontSize: { xs: 13, md: 14 },
                 letterSpacing: "0.04em",

@@ -1,4 +1,4 @@
-# Orion — SEO-Friendly Personal Resume & Portfolio Template
+# Aurora — SEO-Friendly Personal Resume & Portfolio Template
 
 A modern, performant personal portfolio template built with **Next.js 16**, **React 19**, and **Material UI 9**. Designed for engineers, designers, and creators who want a polished, search-engine-optimized presence with minimal setup.
 

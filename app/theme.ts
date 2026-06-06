@@ -6,23 +6,23 @@ const theme = createTheme({
   palette: {
     mode: "dark",
     primary: {
-      light: "#93C5FD",
-      main: "#3B82F6",
-      dark: "#2563EB",
+      light: "#F9A8D4",
+      main: "#EC4899",
+      dark: "#BE185D",
     },
     secondary: {
-      light: "#1E3A8A",
-      main: "#0B1736",
-      dark: "#030712",
+      light: "#6D28D9",
+      main: "#2E1065",
+      dark: "#0d0616",
     },
     error: {
-      light: "#FB923C",
-      main: "#F97316",
-      dark: "#EA580C",
+      light: "#FDA4AF",
+      main: "#F43F5E",
+      dark: "#E11D48",
     },
     background: {
-      default: "#080d1a",
-      paper: "#0f1729",
+      default: "#0c0819",
+      paper: "#140d28",
     },
     grey: {
       100: "#F8FAFC",
@@ -81,7 +81,7 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           textDecoration: "none",
-          color: "#3B82F6",
+          color: "#EC4899",
           transition: "color 0.3s",
           position: "relative",
           paddingBottom: "3px",
@@ -93,13 +93,13 @@ const theme = createTheme({
             width: "100%",
             height: "2px",
             borderRadius: "4px",
-            backgroundColor: "#7DD3FC",
+            backgroundColor: "#F9A8D4",
             transformOrigin: "right",
             transform: "scaleX(0)",
             transition: "transform 0.3s ease-in-out",
           },
           "&:hover": {
-            color: "#7DD3FC",
+            color: "#F9A8D4",
             "&::before": {
               transformOrigin: "left",
               transform: "scaleX(1)",

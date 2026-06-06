@@ -23,7 +23,7 @@ export default function Writing() {
       id="blog"
       sx={{
         py: { xs: 10, md: 14 },
-        borderTop: "1px solid rgba(255,255,255,0.06)",
+        borderTop: "1px solid rgba(255,255,255,0.09)",
         position: "relative",
         zIndex: 1,
       }}
@@ -74,7 +74,7 @@ export default function Writing() {
                   left: 0,
                   right: 0,
                   height: "2px",
-                  backgroundColor: "#3B82F6",
+                  backgroundColor: "#EC4899",
                   transform: "scaleX(0)",
                   transformOrigin: "left",
                   transition: "transform 0.35s ease",
@@ -82,7 +82,7 @@ export default function Writing() {
                 "&:hover": {
                   transform: "translateY(-5px)",
                   boxShadow: "0 16px 48px rgba(0,0,0,0.5)",
-                  borderColor: "rgba(59,130,246,0.20)",
+                  borderColor: "rgba(236,72,153,0.25)",
                   "&::after": { transform: "scaleX(1)" },
                 },
               }}
@@ -143,7 +143,7 @@ export default function Writing() {
                       fontSize: 11,
                       letterSpacing: "0.22em",
                       textTransform: "uppercase",
-                      color: "grey.500",
+                      color: "grey.400",
                     }}
                   >
                     {post.category}
@@ -154,11 +154,25 @@ export default function Writing() {
                       fontSize: 11,
                       letterSpacing: "0.18em",
                       textTransform: "uppercase",
-                      color: "grey.700",
+                      color: "grey.500",
                     }}
                   >
                     · {post.readTime} min read
                   </Typography>
+                  {post.date && (
+                    <Typography
+                      sx={{
+                        fontFamily: "var(--font-inter), sans-serif",
+                        fontSize: 11,
+                        letterSpacing: "0.18em",
+                        textTransform: "uppercase",
+                        color: "grey.500",
+                        ml: "auto",
+                      }}
+                    >
+                      {post.date}
+                    </Typography>
+                  )}
                 </Box>
 
                 {/* Title */}
@@ -177,7 +191,7 @@ export default function Writing() {
                 {/* Excerpt — clamped to 2 lines */}
                 <Typography
                   sx={{
-                    color: "grey.400",
+                    color: "grey.300",
                     fontFamily: "var(--font-inter), sans-serif",
                     fontSize: { xs: 14, md: 15 },
                     lineHeight: 1.65,

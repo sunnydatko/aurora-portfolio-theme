@@ -19,7 +19,7 @@ const BotanicalSprig = ({
     style={style}
     viewBox="0 0 60 220"
     fill="none"
-    stroke="rgba(125,211,252,0.45)"
+    stroke="rgba(249,168,212,0.45)"
     strokeWidth={1.1}
     strokeLinecap="round"
     aria-hidden
@@ -30,7 +30,7 @@ const BotanicalSprig = ({
     <path d="M30 128 C 16 120, 10 128, 8 140" />
     {[40, 52, 64, 76, 88, 100].map((y, i) => (
       <g key={y} transform={`translate(0 ${y})`}>
-        <circle cx={30} cy={0} r={i < 2 ? 2.6 : 2.2} fill="rgba(125,211,252,0.28)" />
+        <circle cx={30} cy={0} r={i < 2 ? 2.6 : 2.2} fill="rgba(249,168,212,0.28)" />
         <line x1={30} y1={-3} x2={24} y2={-7} />
         <line x1={30} y1={-3} x2={36} y2={-7} />
       </g>
@@ -142,7 +142,7 @@ const ParticleField = () => {
         }
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(210,220,235,0.55)";
+        ctx.fillStyle = "rgba(249,168,212,0.55)";
         ctx.fill();
         for (let j = i + 1; j < particles.length; j++) {
           const q = particles[j];
@@ -153,7 +153,7 @@ const ParticleField = () => {
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(q.x, q.y);
-            ctx.strokeStyle = `rgba(180,200,225,${(1 - dist / LINK_DIST) * 0.20})`;
+            ctx.strokeStyle = `rgba(216,140,200,${(1 - dist / LINK_DIST) * 0.22})`;
             ctx.lineWidth = 0.6;
             ctx.stroke();
           }

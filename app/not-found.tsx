@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { type CSSProperties } from "react";
 import { keyframes } from "@emotion/react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -8,42 +8,28 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import ResponsiveMenu from "./components/ResponsiveMenu";
 import Footer from "./components/Footer";
+import Ambient from "./components/Ambient";
 
 const fadeUp = keyframes`
   from { opacity: 0; transform: translateY(24px); filter: blur(4px); }
   to   { opacity: 1; transform: translateY(0);    filter: blur(0px); }
 `;
 
-// Red channel — clips to horizontal slices and shifts left during burst
-const glitch1 = keyframes`
-  0%, 80%, 100% { clip-path: inset(0 0 100% 0); transform: translate(0); }
-  82%  { clip-path: inset(8%  0 54% 0); transform: translate(-6px); }
-  84%  { clip-path: inset(62% 0 16% 0); transform: translate(6px);  }
-  86%  { clip-path: inset(28% 0 58% 0); transform: translate(-4px); }
-  88%  { clip-path: inset(78% 0  6% 0); transform: translate(5px);  }
-  90%  { clip-path: inset(44% 0 38% 0); transform: translate(-6px); }
+const auroraSweep = keyframes`
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 `;
 
-// Cyan channel — interleaved slices, shifts right
-const glitch2 = keyframes`
-  0%, 80%, 100% { clip-path: inset(0 0 100% 0); transform: translate(0); }
-  83%  { clip-path: inset(52% 0 28% 0); transform: translate(6px);  }
-  85%  { clip-path: inset(18% 0 64% 0); transform: translate(-6px); }
-  87%  { clip-path: inset(72% 0 10% 0); transform: translate(4px);  }
-  89%  { clip-path: inset(34% 0 48% 0); transform: translate(-5px); }
-  91%  { clip-path: inset(0  0 100% 0); transform: translate(0);    }
+const float = keyframes`
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
 `;
 
-// Subtle power-flicker on the base text, synced to the glitch window
-const flicker = keyframes`
-  0%, 92%, 100% { opacity: 1;    }
-  93%           { opacity: 0.75; }
-  94%           { opacity: 1;    }
-  95%           { opacity: 0.45; }
-  96%           { opacity: 1;    }
+const bloom = keyframes`
+  0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
+  50%       { opacity: 0.6; transform: translate(-50%, -50%) scale(1.14); }
 `;
-
-const NEUTRAL = "radial-gradient(ellipse 50% 50% at 50% 50%, rgba(59,130,246,0.07) 0%, transparent 70%)";
 
 const anim = (delay: string) => ({
   animation: `${fadeUp} 0.9s cubic-bezier(0.22, 1, 0.36, 1) ${delay} forwards`,
@@ -51,30 +37,45 @@ const anim = (delay: string) => ({
   "@media (prefers-reduced-motion: reduce)": { animation: "none", opacity: 1 },
 });
 
+const BotanicalSprig = ({
+  style,
+  className,
+}: {
+  style?: CSSProperties;
+  className?: string;
+}) => (
+  <svg
+    className={className}
+    style={style}
+    viewBox="0 0 60 220"
+    fill="none"
+    stroke="rgba(249,168,212,0.45)"
+    strokeWidth={1.1}
+    strokeLinecap="round"
+    aria-hidden
+  >
+    <path d="M30 220 C 30 150, 30 110, 30 40" />
+    <path d="M30 168 C 14 158, 8 168, 6 180" />
+    <path d="M30 150 C 46 140, 52 150, 54 162" />
+    <path d="M30 128 C 16 120, 10 128, 8 140" />
+    {[40, 52, 64, 76, 88, 100].map((y, i) => (
+      <g key={y} transform={`translate(0 ${y})`}>
+        <circle cx={30} cy={0} r={i < 2 ? 2.6 : 2.2} fill="rgba(249,168,212,0.28)" />
+        <line x1={30} y1={-3} x2={24} y2={-7} />
+        <line x1={30} y1={-3} x2={36} y2={-7} />
+      </g>
+    ))}
+  </svg>
+);
+
 export default function NotFound() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const cursorGlowRef = useRef<HTMLDivElement>(null);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cursorGlowRef.current || !sectionRef.current) return;
-    const rect = sectionRef.current.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 100;
-    const y = ((e.clientY - rect.top) / rect.height) * 100;
-    cursorGlowRef.current.style.background = `radial-gradient(ellipse 50% 50% at ${x}% ${y}%, rgba(59,130,246,0.12) 0%, transparent 70%)`;
-  };
-
-  const handleMouseLeave = () => {
-    if (cursorGlowRef.current) cursorGlowRef.current.style.background = NEUTRAL;
-  };
-
   return (
-    <Box sx={{ minHeight: "100vh", backgroundColor: "#080d1a", display: "flex", flexDirection: "column" }}>
+    <Box sx={{ minHeight: "100vh", backgroundColor: "#0c0819", display: "flex", flexDirection: "column" }}>
+      <Ambient />
       <ResponsiveMenu />
 
       <Box
-        ref={sectionRef}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
+        component="section"
         sx={{
           flex: 1,
           display: "flex",
@@ -83,37 +84,41 @@ export default function NotFound() {
           overflow: "hidden",
         }}
       >
-        {/* Cursor-tracked illumination */}
-        <Box
-          ref={cursorGlowRef}
-          aria-hidden
-          sx={{
-            position: "absolute",
-            inset: 0,
-            background: NEUTRAL,
-            transition: "background 0.15s ease",
-            pointerEvents: "none",
-          }}
+        {/* Decorative botanical sprigs */}
+        <BotanicalSprig
+          className="sway"
+          style={{ position: "absolute", bottom: 0, left: "3vw", width: 90, height: 240, opacity: 0.15, zIndex: 1 }}
         />
-
-        {/* CRT scanlines */}
-
-        <Box
-          aria-hidden
-          sx={{
-            position: "absolute",
-            inset: 0,
-            backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.07) 2px, rgba(0,0,0,0.07) 4px)",
-            pointerEvents: "none",
-            zIndex: 2,
-          }}
+        <BotanicalSprig
+          className="sway sway-slow"
+          style={{ position: "absolute", bottom: 0, right: "4vw", width: 80, height: 220, opacity: 0.12, transform: "scaleX(-1)", zIndex: 1 }}
         />
 
         <Container sx={{ position: "relative", zIndex: 3, py: { xs: 10, md: 12 } }}>
           <Box sx={{ maxWidth: 560, mx: "auto", textAlign: "center" }}>
 
-            {/* Glitch 404 */}
-            <Box sx={{ ...anim("0.2s"), mb: { xs: 2, md: 3 } }}>
+            {/* Aurora 404 */}
+            <Box sx={{ ...anim("0.2s"), mb: { xs: 2, md: 3 }, position: "relative" }}>
+              {/* Bloom glow behind the number */}
+              <Box
+                aria-hidden
+                sx={{
+                  position: "absolute",
+                  top: "50%",
+                  left: "50%",
+                  width: { xs: "340px", md: "540px" },
+                  height: { xs: "220px", md: "360px" },
+                  transform: "translate(-50%, -50%)",
+                  borderRadius: "50%",
+                  background: "radial-gradient(circle, rgba(236,72,153,0.55) 0%, rgba(109,40,217,0.35) 45%, transparent 70%)",
+                  filter: "blur(44px)",
+                  animation: `${bloom} 4s ease-in-out infinite`,
+                  "@media (prefers-reduced-motion: reduce)": { animation: "none", opacity: 0.4 },
+                  zIndex: 0,
+                  pointerEvents: "none",
+                }}
+              />
+
               <Typography
                 component="div"
                 sx={{
@@ -123,31 +128,15 @@ export default function NotFound() {
                   lineHeight: 1,
                   letterSpacing: "-0.04em",
                   userSelect: "none",
-                  color: "transparent",
-                  WebkitTextStroke: "2px rgba(59,130,246,0.4)",
                   position: "relative",
-                  animation: `${flicker} 5s infinite 1.2s`,
+                  zIndex: 1,
+                  background: "linear-gradient(135deg, #EC4899 0%, #a855f7 28%, #818cf8 55%, #F9A8D4 78%, #EC4899 100%)",
+                  backgroundSize: "300% 300%",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                  animation: `${auroraSweep} 7s ease infinite, ${float} 5s ease-in-out infinite`,
                   "@media (prefers-reduced-motion: reduce)": { animation: "none" },
-                  // Red channel
-                  "&::before": {
-                    content: '"404"',
-                    position: "absolute",
-                    inset: 0,
-                    color: "transparent",
-                    WebkitTextStroke: "2px rgba(255,50,100,0.8)",
-                    animation: `${glitch1} 5s infinite`,
-                    "@media (prefers-reduced-motion: reduce)": { display: "none" },
-                  },
-                  // Cyan channel
-                  "&::after": {
-                    content: '"404"',
-                    position: "absolute",
-                    inset: 0,
-                    color: "transparent",
-                    WebkitTextStroke: "2px rgba(0,220,255,0.8)",
-                    animation: `${glitch2} 5s infinite 0.04s`,
-                    "@media (prefers-reduced-motion: reduce)": { display: "none" },
-                  },
                 }}
               >
                 404
@@ -177,7 +166,7 @@ export default function NotFound() {
                 mb: 2,
               }}
             >
-              Page Not Found
+              Lost in the Cosmos
             </Typography>
 
             {/* Body */}
@@ -190,7 +179,8 @@ export default function NotFound() {
                 mb: { xs: 5, md: 6 },
               }}
             >
-              Looks like you've drifted off course. The page you're looking for doesn't exist or may have moved.            </Typography>
+              This page drifted beyond the aurora. It may have moved or never existed — but the path home is always lit.
+            </Typography>
 
             {/* CTA */}
             <Box sx={{ ...anim("1.0s") }}>

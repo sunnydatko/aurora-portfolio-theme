@@ -22,6 +22,7 @@ const navItems = [
   { name: "About", href: "/#about" },
   { name: "Experience", href: "/#experience" },
   { name: "Blog", href: "/#blog" },
+  { name: "Contact", href: "/#contact" },
 ];
 
 export default function ResponsiveMenu() {
@@ -32,7 +33,7 @@ export default function ResponsiveMenu() {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center", pt: 1 }}>
       <Box sx={{ display: "flex", justifyContent: "center", py: 2 }}>
-        <BrandMark starSize={20} fontSize={15} />
+        <BrandMark iconSize={38} fontSize={15} />
       </Box>
       <Divider />
       <List>
@@ -71,7 +72,7 @@ export default function ResponsiveMenu() {
         elevation={0}
         position="fixed"
         sx={{
-          backgroundColor: "rgba(8,13,26,0.60)",
+          backgroundColor: "rgba(7,4,15,0.65)",
           backdropFilter: "blur(14px)",
           WebkitBackdropFilter: "blur(14px)",
           borderBottom: "1px solid rgba(255,255,255,0.06)",
@@ -94,7 +95,7 @@ export default function ResponsiveMenu() {
             underline="none"
             sx={{ paddingBottom: 0, "&::before": { display: "none" } }}
           >
-            <BrandMark starSize={22} fontSize={16} />
+            <BrandMark iconSize={42} fontSize={17} />
           </Link>
 
           <Box sx={{ ml: "auto", display: { xs: "none", sm: "flex" }, gap: 0.5 }}>
@@ -119,7 +120,7 @@ export default function ResponsiveMenu() {
             <Button
               href="/#contact"
               variant="contained"
-              sx={{ ml: 1.5, px: 2.5, fontSize: 14 }}
+              sx={{ ml: 1.5, px: 2.5, fontSize: 14, whiteSpace: "nowrap" }}
             >
               Contact Me
             </Button>

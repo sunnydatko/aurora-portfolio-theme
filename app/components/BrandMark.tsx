@@ -3,23 +3,32 @@
 import Image from "next/image";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import faviconImg from "../favicon.png";
+import faviconSrc from "../favicon.png";
 
 type BrandMarkProps = {
-  starSize?: number;
+  iconSize?: number;
   fontSize?: number;
 };
 
-export default function BrandMark({ starSize = 22, fontSize = 16 }: BrandMarkProps) {
+export default function BrandMark({ iconSize = 38, fontSize = 18 }: BrandMarkProps) {
   return (
-    <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+    <Box
+      sx={{
+        display: "flex",
+        alignItems: "center",
+        gap: 2,
+        "& img": { transition: "filter 0.3s ease" },
+        "&:hover img": {
+          filter: "drop-shadow(0 0 12px rgba(255, 105, 180, 0.4))",
+        },
+      }}
+    >
       <Image
-        src={faviconImg}
-        width={starSize}
-        height={starSize}
+        src={faviconSrc}
         alt=""
+        width={iconSize}
+        height={iconSize}
         aria-hidden
-        style={{ flexShrink: 0 }}
       />
       <Typography
         component="span"
@@ -27,7 +36,7 @@ export default function BrandMark({ starSize = 22, fontSize = 16 }: BrandMarkPro
           fontFamily: "var(--font-space-grotesk), sans-serif",
           fontWeight: 700,
           fontSize,
-          letterSpacing: "0.08em",
+          letterSpacing: "0.1em",
           textTransform: "uppercase",
           color: "common.white",
           lineHeight: 1,

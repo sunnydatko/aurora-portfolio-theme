@@ -20,7 +20,7 @@ export default function About() {
       id="about"
       sx={{
         py: { xs: 10, md: 14 },
-        borderTop: "1px solid rgba(255,255,255,0.06)",
+        borderTop: "1px solid rgba(255,255,255,0.09)",
         position: "relative",
         zIndex: 1,
       }}
