@@ -1,6 +1,6 @@
 "use client";
 
-import { type CSSProperties } from "react";
+import { type CSSProperties, useEffect, useState } from "react";
 import { keyframes } from "@emotion/react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -8,7 +8,7 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import ResponsiveMenu from "./components/ResponsiveMenu";
 import Footer from "./components/Footer";
-import Ambient from "./components/Ambient";
+import notFoundBg from "./images/not-found-bg.png";
 
 const fadeUp = keyframes`
   from { opacity: 0; transform: translateY(24px); filter: blur(4px); }
@@ -29,6 +29,12 @@ const float = keyframes`
 const bloom = keyframes`
   0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
   50%       { opacity: 0.6; transform: translate(-50%, -50%) scale(1.14); }
+`;
+
+const shootingStar = keyframes`
+  0%   { opacity: 0; transform: translateX(0)     translateY(0)     rotate(-45deg); }
+  15%  { opacity: 1; transform: translateX(-30px)  translateY(30px)  rotate(-45deg); }
+  100% { opacity: 0; transform: translateX(-280px) translateY(280px) rotate(-45deg); }
 `;
 
 const anim = (delay: string) => ({
@@ -69,9 +75,25 @@ const BotanicalSprig = ({
 );
 
 export default function NotFound() {
+  const [starActive, setStarActive] = useState(false);
+
+  useEffect(() => {
+    let t: ReturnType<typeof setTimeout>;
+
+    const fire = () => {
+      setStarActive(true);
+      t = setTimeout(() => {
+        setStarActive(false);
+        t = setTimeout(fire, 10_000 + Math.random() * 5_000);
+      }, 1_000);
+    };
+
+    t = setTimeout(fire, 2_000 + Math.random() * 3_000);
+    return () => clearTimeout(t);
+  }, []);
+
   return (
     <Box sx={{ minHeight: "100vh", backgroundColor: "#0c0819", display: "flex", flexDirection: "column" }}>
-      <Ambient />
       <ResponsiveMenu />
 
       <Box
@@ -84,6 +106,41 @@ export default function NotFound() {
           overflow: "hidden",
         }}
       >
+        {/* Background image */}
+        <Box
+          aria-hidden
+          sx={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage: `url(${notFoundBg.src})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            opacity: 0.6,
+            zIndex: 0,
+          }}
+        />
+
+        {/* Shooting star easter egg */}
+        {starActive && (
+          <Box
+            aria-hidden
+            sx={{
+              position: "absolute",
+              top: "18%",
+              right: "22%",
+              width: 90,
+              height: 1.5,
+              borderRadius: "9999px",
+              background: "linear-gradient(to right, rgba(255,255,255,0.95), transparent)",
+              boxShadow: "0 0 4px rgba(255,255,255,0.6), 0 0 10px rgba(236,72,153,0.5)",
+              animation: `${shootingStar} 1s ease-out forwards`,
+              "@media (prefers-reduced-motion: reduce)": { display: "none" },
+              pointerEvents: "none",
+              zIndex: 2,
+            }}
+          />
+        )}
+
         {/* Decorative botanical sprigs */}
         <BotanicalSprig
           className="sway"
@@ -179,7 +236,7 @@ export default function NotFound() {
                 mb: { xs: 5, md: 6 },
               }}
             >
-              This page drifted beyond the aurora. It may have moved or never existed — but the path home is always lit.
+              This page drifted beyond the aurora. It may have moved or never existed, but the path home is always lit.
             </Typography>
 
             {/* CTA */}
@@ -188,15 +245,29 @@ export default function NotFound() {
                 href="/"
                 sx={{
                   fontSize: { xs: 15, md: 16 },
-                  px: 3.5,
-                  py: 1.4,
+                  px: 4,
+                  py: 1.6,
+                  borderRadius: "10px",
+                  fontFamily: "var(--font-space-grotesk), sans-serif",
+                  fontWeight: 600,
+                  letterSpacing: "0.01em",
+                  background: "linear-gradient(135deg, #EC4899 0%, #a855f7 55%, #818cf8 100%)",
+                  backgroundSize: "200% auto",
+                  backgroundPosition: "left center",
+                  boxShadow: "0 4px 24px rgba(236,72,153,0.35), 0 0 40px rgba(168,85,247,0.12)",
+                  transition: "box-shadow 0.35s ease, transform 0.3s ease, background-position 0.5s ease",
+                  "&:hover": {
+                    backgroundPosition: "right center",
+                    boxShadow: "0 5px 28px rgba(236,72,153,0.45), 0 0 52px rgba(168,85,247,0.18)",
+                    transform: "translateY(-2px)",
+                  },
                   "& .arrow": { ml: 1.5, transition: "transform 0.3s" },
-                  "&:hover .arrow": { transform: "translateX(4px)" },
+                  "&:hover .arrow": { transform: "translateX(5px)" },
                 }}
               >
                 Back to Home
                 <Box component="span" className="arrow" aria-hidden>
-                  {" "}→
+                  →
                 </Box>
               </Button>
             </Box>
