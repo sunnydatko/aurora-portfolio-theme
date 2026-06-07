@@ -3,7 +3,7 @@
 
   # Aurora
 
-  **A dark, polished portfolio template for engineers and creators.**
+  **A deep, atmospheric portfolio template for engineers and creators — built under a night sky.**
 
   Built with Next.js 16 · React 19 · Material UI 9 · TypeScript
 
@@ -31,6 +31,20 @@
 - **Contact** — inbound contact form
 - **Scroll animations** — CSS-driven reveal system via Intersection Observer, no animation library required
 - **SEO-ready** — server-side rendering, Metadata API, statically generated blog pages, optimized images
+
+---
+
+## Design
+
+Aurora draws its palette and mood from the night sky — deep violet shadows, rose-pink light, and the kind of atmosphere that makes you feel like you're reading under the stars. The aesthetic is intentional:
+
+- **Night-sky color palette** — near-black backgrounds (`#0c0819`) layered with deep plum and violet, with rose-pink as the single accent that pulls the eye
+- **Living ambient layer** — gradient auras drift behind the content with a subtle parallax on scroll, evoking the slow movement of auroral light
+- **Particle constellation** — a canvas-drawn field of drifting dots that connect into transient constellations, never distracting, always present
+- **Cursor glow** — a soft radial bloom follows the pointer on desktop, making the page feel responsive to presence
+- **Botanical detail** — faint SVG sprigs sway at the edges of the viewport, grounding the cosmic palette in something delicate and organic
+- **Motion-aware** — every animation respects `prefers-reduced-motion`; the page is calm for users who need it
+- **Typographic contrast** — Space Grotesk at display weight for headlines, Inter for everything else; tight letter-spacing on `h1` keeps it sharp at large sizes
 
 ---
 
