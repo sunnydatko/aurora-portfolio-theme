@@ -142,7 +142,7 @@ const ParticleField = () => {
         }
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(249,168,212,0.15)";
+        ctx.fillStyle = "rgba(249,168,212,0.28)";
         ctx.fill();
         for (let j = i + 1; j < particles.length; j++) {
           const q = particles[j];
@@ -153,7 +153,7 @@ const ParticleField = () => {
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(q.x, q.y);
-            ctx.strokeStyle = `rgba(216,140,200,${(1 - dist / LINK_DIST) * 0.08})`;
+            ctx.strokeStyle = `rgba(216,140,200,${(1 - dist / LINK_DIST) * 0.14})`;
             ctx.lineWidth = 0.6;
             ctx.stroke();
           }
