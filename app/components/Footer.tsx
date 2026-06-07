@@ -36,7 +36,7 @@ const Footer = () => (
                 "&:hover": {
                   color: "primary.main",
                   backgroundColor: "transparent",
-                  transform: "scale(1.25)",
+                  transform: "scale(1.15)",
                 },
               }}
             >
