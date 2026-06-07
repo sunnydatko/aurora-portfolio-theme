@@ -25,6 +25,7 @@ export default function Testimonial() {
         borderTop: "1px solid rgba(255,255,255,0.06)",
         position: "relative",
         zIndex: 1,
+        overflow: "hidden",
       }}
     >
       <Box
