@@ -101,6 +101,16 @@ export const blogPosts = [
   },
 ];
 
+export const testimonials = [
+  {
+    quote:
+      "Working with her was one of the best engineering experiences I've had. She brought a rare combination of technical depth and design intuition to every project — our design system went from inconsistent to something the whole team was proud of.",
+    name: "Alex Rivera",
+    title: "VP of Engineering, Nexus Labs",
+    image: "testimonial-avatar",
+  },
+];
+
 export const education = [
   {
     company: "State University",

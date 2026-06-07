@@ -4,6 +4,7 @@ import Hero from "./components/Hero";
 import About from "./components/About";
 import Experience from "./components/Experience";
 import Writing from "./components/Writing";
+import Testimonial from "./components/Testimonial";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import ScrollReveal from "./components/ScrollReveal";
@@ -19,6 +20,7 @@ export default function Home() {
         <About />
         <Experience />
         <Writing />
+        <Testimonial />
         <Contact />
       </main>
       <Footer />
