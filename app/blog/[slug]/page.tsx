@@ -610,6 +610,9 @@ export default async function BlogPostPage({
           position: "relative",
           width: "100%",
           height: { xs: 280, sm: 380, md: 500 },
+          overflow: "hidden",
+          "& img": { transition: "transform 0.6s ease" },
+          "&:hover img": { transform: "scale(1.04)" },
         }}
       >
         <Image

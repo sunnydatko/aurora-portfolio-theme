@@ -67,8 +67,7 @@ export default function Writing() {
                 textDecoration: "none",
                 position: "relative",
                 boxShadow: "0 8px 32px rgba(0,0,0,0.32), 0 0 28px rgba(236,72,153,0.07)",
-                transition:
-                  "transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease",
+                transition: "box-shadow 0.3s ease, border-color 0.3s ease",
                 "&::after": {
                   content: '""',
                   position: "absolute",
@@ -82,10 +81,10 @@ export default function Writing() {
                   transition: "transform 0.35s ease",
                 },
                 "&:hover": {
-                  transform: "translateY(-5px)",
                   boxShadow: "0 16px 48px rgba(0,0,0,0.5), 0 0 48px rgba(236,72,153,0.18)",
                   borderColor: "rgba(236,72,153,0.25)",
                   "&::after": { transform: "scaleX(1)" },
+                  "& img": { transform: "scale(1.06)" },
                 },
               }}
             >
@@ -96,6 +95,7 @@ export default function Writing() {
                   minHeight: { xs: 200, md: "auto" },
                   flex: { md: "0 0 44%" },
                   overflow: "hidden",
+                  "& img": { transition: "transform 0.6s ease" },
                 }}
               >
                 <Image
