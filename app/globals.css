@@ -129,6 +129,14 @@ body {
     inset 0 1px 0 rgba(245, 241, 236, 0.08);
 }
 
+/* aurora pink glow utilities */
+.glow-eyebrow {
+  text-shadow: 0 0 18px rgba(236, 72, 153, 0.55);
+}
+.glow-heading {
+  text-shadow: 0 0 48px rgba(236, 72, 153, 0.22);
+}
+
 /* reveal-on-scroll */
 .reveal {
   opacity: 0;

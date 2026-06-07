@@ -44,7 +44,7 @@ export default function Testimonial() {
       <Container sx={{ maxWidth: "650px !important", textAlign: "center", position: "relative" }}>
         <Typography
           component="span"
-          className="reveal"
+          className="reveal glow-eyebrow"
           sx={{
             display: "block",
             color: "primary.light",
@@ -102,7 +102,8 @@ export default function Testimonial() {
                 height: 100,
                 borderRadius: "50%",
                 overflow: "hidden",
-                border: "2px solid rgba(59,130,246,0.35)",
+                border: "2px solid rgba(236,72,153,0.45)",
+                boxShadow: "0 0 16px rgba(236,72,153,0.4), 0 0 36px rgba(236,72,153,0.18)",
                 flexShrink: 0,
                 position: "relative",
               }}

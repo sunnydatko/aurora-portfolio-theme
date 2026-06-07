@@ -99,6 +99,7 @@ export default function Contact() {
         <Box className="reveal" sx={{ textAlign: "center", mb: 6 }}>
           <Typography
             component="span"
+            className="glow-eyebrow"
             sx={{
               display: "block",
               color: "primary.light",
@@ -112,7 +113,7 @@ export default function Contact() {
           >
             + Let's Connect
           </Typography>
-          <Typography variant="h3">Contact Me</Typography>
+          <Typography variant="h3" className="glow-heading">Contact Me</Typography>
         </Box>
 
         <form onSubmit={handleSubmit} noValidate className="reveal" style={{ transitionDelay: "0.1s" }}>

@@ -32,6 +32,7 @@ export default function Writing() {
         <Box className="reveal" sx={{ textAlign: "center", mb: 8 }}>
           <Typography
             component="span"
+            className="glow-eyebrow"
             sx={{
               display: "block",
               color: "primary.light",
@@ -45,7 +46,7 @@ export default function Writing() {
           >
             + My Writing
           </Typography>
-          <Typography variant="h3">Blog</Typography>
+          <Typography variant="h3" className="glow-heading">Blog</Typography>
         </Box>
 
         <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
@@ -65,6 +66,7 @@ export default function Writing() {
                 backgroundColor: "background.paper",
                 textDecoration: "none",
                 position: "relative",
+                boxShadow: "0 8px 32px rgba(0,0,0,0.32), 0 0 28px rgba(236,72,153,0.07)",
                 transition:
                   "transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease",
                 "&::after": {
@@ -81,7 +83,7 @@ export default function Writing() {
                 },
                 "&:hover": {
                   transform: "translateY(-5px)",
-                  boxShadow: "0 16px 48px rgba(0,0,0,0.5)",
+                  boxShadow: "0 16px 48px rgba(0,0,0,0.5), 0 0 48px rgba(236,72,153,0.18)",
                   borderColor: "rgba(236,72,153,0.25)",
                   "&::after": { transform: "scaleX(1)" },
                 },

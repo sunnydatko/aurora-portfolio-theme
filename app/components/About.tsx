@@ -33,7 +33,7 @@ export default function About() {
       >
         <Typography
           component="span"
-          className="reveal"
+          className="reveal glow-eyebrow"
           sx={{
             display: "block",
             color: "primary.light",
@@ -48,7 +48,7 @@ export default function About() {
           + About Me
         </Typography>
 
-        <Typography className="reveal" style={{ transitionDelay: "0.1s" }} variant="h3" sx={{ mb: 4 }}>
+        <Typography className="reveal glow-heading" style={{ transitionDelay: "0.1s" }} variant="h3" sx={{ mb: 4 }}>
           Turning product ideas into polished user experiences
         </Typography>
 

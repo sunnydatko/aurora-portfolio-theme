@@ -23,6 +23,7 @@ export default function Experience() {
         <Box className="reveal" sx={{ textAlign: "center", mb: 8 }}>
           <Typography
             component="span"
+            className="glow-eyebrow"
             sx={{
               display: "block",
               color: "primary.light",
@@ -36,7 +37,7 @@ export default function Experience() {
           >
             + Career
           </Typography>
-          <Typography variant="h3">Experience</Typography>
+          <Typography variant="h3" className="glow-heading">Experience</Typography>
         </Box>
 
         {/* Timeline entries */}
