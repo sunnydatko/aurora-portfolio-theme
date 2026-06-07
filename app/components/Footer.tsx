@@ -32,7 +32,12 @@ const Footer = () => (
               size="small"
               sx={{
                 color: "grey.500",
-                "&:hover": { color: "primary.main", backgroundColor: "transparent" },
+                transition: "color 0.2s ease, transform 0.2s ease",
+                "&:hover": {
+                  color: "primary.main",
+                  backgroundColor: "transparent",
+                  transform: "scale(1.25)",
+                },
               }}
             >
               {iconMap[label]}
