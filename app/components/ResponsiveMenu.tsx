@@ -99,7 +99,7 @@ export default function ResponsiveMenu() {
           </Link>
 
           <Box sx={{ ml: "auto", display: { xs: "none", sm: "flex" }, gap: 0.5 }}>
-            {navItems.map(({ name, href }) => (
+            {navItems.filter(({ name }) => name !== "Contact").map(({ name, href }) => (
               <Button
                 key={name}
                 href={href}
