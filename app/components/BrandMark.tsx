@@ -17,10 +17,9 @@ export default function BrandMark({ iconSize = 38, fontSize = 18 }: BrandMarkPro
         display: "flex",
         alignItems: "center",
         gap: 2,
-        "& img": { transition: "filter 0.3s ease" },
-        "&:hover img": {
-          filter: "drop-shadow(0 0 12px rgba(255, 105, 180, 0.4))",
-        },
+        opacity: 0.82,
+        transition: "opacity 0.2s ease",
+        "&:hover": { opacity: 1 },
       }}
     >
       <Image
