@@ -6,9 +6,9 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { blogPosts } from "../helpers/config";
-import blog1 from "../images/blog-1.png";
-import blog2 from "../images/blog-2.png";
-import blog3 from "../images/blog-3.png";
+import blog1 from "../images/blog-1.webp";
+import blog2 from "../images/blog-2.webp";
+import blog3 from "../images/blog-3.webp";
 
 const imageMap: Record<string, StaticImageData> = {
   "blog-1": blog1,

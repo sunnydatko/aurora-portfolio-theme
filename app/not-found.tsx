@@ -8,7 +8,7 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import ResponsiveMenu from "./components/ResponsiveMenu";
 import Footer from "./components/Footer";
-import notFoundBg from "./images/not-found-bg.png";
+import notFoundBg from "./images/not-found-bg.webp";
 
 const fadeUp = keyframes`
   from { opacity: 0; transform: translateY(24px); filter: blur(4px); }

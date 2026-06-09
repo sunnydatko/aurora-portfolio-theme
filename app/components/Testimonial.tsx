@@ -6,7 +6,7 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { testimonials } from "../helpers/config";
-import testimonialAvatar from "../images/testimonial-avatar.png";
+import testimonialAvatar from "../images/testimonial-avatar.webp";
 
 const imageMap: Record<string, StaticImageData> = {
   "testimonial-avatar": testimonialAvatar,
